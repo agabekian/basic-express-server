@@ -50,6 +50,11 @@ describe('API Server', () => {
         expect(response.status).toBe(200);
     });
 
+    it('should respond with a 200 status for a single record route', async () => {
+        let response = await mockRequest.get('/person?name=John');
+        expect(response.status).toBe(200);
+    });
+
     it('should respond with an object for a single record route', async () => {
         let response = await mockRequest.get('/data/abc111');
         expect(response.body.name).toBeDefined();
@@ -59,5 +64,6 @@ describe('API Server', () => {
         let response = await mockRequest.get('/data/zzz888');
         expect(response.status).toBe(500);
     });
+
 
 });
